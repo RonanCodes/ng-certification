@@ -30,7 +30,7 @@ export class WeatherService {
   getForecastByZipCode(zipCode: number, numberOfDays = 5): Observable<WeatherForecastResponse> {
     if (numberOfDays < 1 || numberOfDays > 16) {
       numberOfDays = 5;
-      console.error('Forecast can only be made between 1 and 16 days, defaulting to 5 days.')
+      console.error('Forecast can only be made between 1 and 16 days, defaulting to 5 days.');
     }
 
     return this.httpClient.get<WeatherForecastResponse>(this.getForecastByZipCodeApiUrl(zipCode, numberOfDays));

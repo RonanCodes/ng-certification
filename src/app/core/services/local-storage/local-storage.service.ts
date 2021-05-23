@@ -33,7 +33,7 @@ export class LocalStorageService {
   }
 
   removeZipCode(zipCodeToRemove: number): number[] {
-    let zipCodes = this.getZipCodes();
+    const zipCodes = this.getZipCodes();
     const zipCodeToRemoveIndex = zipCodes.findIndex(zipCode => zipCode === zipCodeToRemove);
     zipCodes.splice(zipCodeToRemoveIndex, 1);
     this.saveZipCodes(zipCodes);

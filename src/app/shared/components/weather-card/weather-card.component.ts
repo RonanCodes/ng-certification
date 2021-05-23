@@ -34,7 +34,7 @@ export class WeatherCardComponent {
       this._weather = weatherResponse;
       this.weatherImgLocation = WeatherUtil.getWeatherImage(weatherResponse.weather[0].main);
     }
-  };
+  }
 
   public get weather(): WeatherResponse | undefined {
     return this._weather;

@@ -1,0 +1,8 @@
+<!-- forecastRow -->
+<!-- <li class="list-group-item"> Monday, Mar 23: Rain - Min: 45 - Max: 59 <img class="icon" -->
+<div *ngIf="forecastRow">
+  <li class="list-group-item"> {{forecastDate}}: {{forecastRow.weather[0].main}} - Min: {{forecastRow.temp.min}} - Max:
+    {{forecastRow.temp.max}} <img class="icon" [src]="weatherImgLocation" [alt]="forecastRow.weather[0].main">
+  </li>
+</div>
+<!-- {{forecastRow.temp.max}} <img class="icon" src="https://www.angulartraining.com/images/weather/rain.png"> -->

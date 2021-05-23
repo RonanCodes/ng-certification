@@ -15,9 +15,9 @@ import { RouterModule } from '@angular/router';
   declarations: [WeatherCardComponent, ZipCodeInputComponent],
   imports: [
     CommonModule,
-    RouterModule,
     FormsModule,
+    AppRoutingModule
   ],
-  exports: [WeatherCardComponent, ZipCodeInputComponent, FormsModule]
+  exports: [WeatherCardComponent, ZipCodeInputComponent, FormsModule, AppRoutingModule]
 })
 export class SharedModule { }

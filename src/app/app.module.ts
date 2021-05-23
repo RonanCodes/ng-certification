@@ -11,8 +11,8 @@ import { FeatureModule } from './feature/feature.module';
  * This module should be as small as possible.
  */
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, CoreModule, FeatureModule],
+  imports: [BrowserModule, CoreModule, FeatureModule, AppRoutingModule],
   declarations: [AppComponent],
-  bootstrap: [AppComponent] // TODO: Add a startup service to fetch localstorage data before app load so it's ready.
+  bootstrap: [AppComponent] // TODO: Add a startup service to fetch local-storage data before app load so it's ready.
 })
 export class AppModule { }

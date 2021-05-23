@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { WeatherResponse } from '@core/services/weather/weather.model';
+import { WeatherService } from '@core/services/weather/weather.service';
+import { WeatherUtil } from '@shared/utils/weather.util';
 
 @Component({
   selector: 'app-weather-card',
@@ -10,9 +13,29 @@ export class WeatherCardComponent implements OnInit {
 
   @Output() zipCodeRemoveInitiated = new EventEmitter<number>();
 
-  constructor() { }
+  public _weather: WeatherResponse | undefined;
+  public set weather(weatherResponse: WeatherResponse | undefined) {
+    console.log({ weatherResponse });
 
-  ngOnInit(): void {
+    if (weatherResponse) {
+      this._weather = weatherResponse;
+      this.weatherImgLocation = WeatherUtil.getWeatherImage(weatherResponse.weather[0].main);
+    }
+  };
+
+  public get weather(): WeatherResponse | undefined {
+    return this._weather;
   }
 
+
+  public weatherImgLocation: string | undefined;
+
+  constructor(private weatherService: WeatherService) { }
+
+  ngOnInit(): void {
+    this.weatherService.getWeatherByZipCode(95742).subscribe(weather => {
+      console.log({ weather });
+      this.weather = weather;
+    });
+  }
 }

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ForecastComponent } from './forecast/forecast.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '@shared/shared.module';
+import { ForecastRowComponent } from './forecast/forecast-row/forecast-row.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'app/app-routing.module';
 
 /**
  * This module contains the main feature modules.
@@ -12,7 +15,7 @@ import { SharedModule } from '@shared/shared.module';
  * Once the feature components get large enough they may warrant their own module.
  */
 @NgModule({
-  declarations: [DashboardComponent, ForecastComponent],
+  declarations: [DashboardComponent, ForecastComponent, ForecastRowComponent],
   imports: [
     CommonModule, SharedModule
   ],

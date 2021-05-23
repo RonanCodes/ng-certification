@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-forecast',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forecast.component.scss']
 })
 export class ForecastComponent implements OnInit {
+  public zipCode: string | undefined | null;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const routeParams = this.activatedRoute.snapshot.paramMap;
+    this.zipCode = routeParams.get('zipCode');
   }
-
 }

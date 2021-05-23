@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZipcodeInputComponent } from './zipcode-input.component';
+import { ZipCodeInputComponent } from './zip-code-input.component';
 
 describe('ZipcodeInputComponent', () => {
-  let component: ZipcodeInputComponent;
-  let fixture: ComponentFixture<ZipcodeInputComponent>;
+  let component: ZipCodeInputComponent;
+  let fixture: ComponentFixture<ZipCodeInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZipcodeInputComponent ]
+      declarations: [ZipCodeInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ZipcodeInputComponent);
+    fixture = TestBed.createComponent(ZipCodeInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

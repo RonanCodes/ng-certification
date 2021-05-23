@@ -13,6 +13,7 @@ import { FeatureModule } from './feature/feature.module';
 @NgModule({
   imports: [BrowserModule, CoreModule, FeatureModule, AppRoutingModule],
   declarations: [AppComponent],
-  bootstrap: [AppComponent] // TODO: Add a startup service to fetch local-storage data before app load so it's ready.
+  bootstrap: [AppComponent]
+  // Note: We could add a startup service to fetch local-storage data before the app loads so it's ready (would want a data source/store for the retrieved data).
 })
 export class AppModule { }

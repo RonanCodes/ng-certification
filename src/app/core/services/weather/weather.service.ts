@@ -5,6 +5,7 @@ import { WeatherForecastResponse } from './weather-forecast.model';
 import { WeatherResponse } from './weather.model';
 
 // Backup url if OpenWeatherAPI isn't working: https://lp-store.herokuapp.com/weather?zipcode=95742
+// API is working, so not implementing this backup URL.
 
 // Note: We could create simplified interfaces for the response data, instead of just passing the response around.
 @Injectable({

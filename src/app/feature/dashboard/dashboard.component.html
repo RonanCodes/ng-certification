@@ -1,4 +1,6 @@
 <div class="container-fluid">
-  <app-zip-code-input></app-zip-code-input>
-  <app-weather-card (zipCodeRemoveInitiated)="removeZipCode($event)"></app-weather-card>
+  <app-zip-code-input (zipCodeAdded)="addZipCode($event)"></app-zip-code-input>
+  <app-weather-card *ngFor="let zipCode of zipCodes" [zipCode]="zipCode"
+    (zipCodeRemoveInitiated)="removeZipCode($event)">
+  </app-weather-card>
 </div>

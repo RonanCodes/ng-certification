@@ -8,7 +8,13 @@ import { WeatherUtil } from '@shared/utils/weather.util';
   styleUrls: ['./forecast-row.component.scss']
 })
 export class ForecastRowComponent implements OnInit {
+  public forecastDate: string | undefined;
+  public weatherImgLocation: string | undefined;
+
   public _forecastRow: WeatherForecastResponseItem | undefined;
+  get forecastRow(): WeatherForecastResponseItem | undefined {
+    return this._forecastRow;
+  }
 
   @Input() set forecastRow(weatherForecastResponseItem: WeatherForecastResponseItem | undefined) {
     this.generateDisplayDate(weatherForecastResponseItem);
@@ -28,13 +34,6 @@ export class ForecastRowComponent implements OnInit {
       this.weatherImgLocation = WeatherUtil.getWeatherImage(weatherForecastResponseItem.weather[0].main);
     }
   }
-
-  get forecastRow(): WeatherForecastResponseItem | undefined {
-    return this._forecastRow;
-  }
-
-  public forecastDate: string | undefined;
-  public weatherImgLocation: string | undefined;
 
   constructor() { }
 

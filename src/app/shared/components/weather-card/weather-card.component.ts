@@ -9,7 +9,25 @@ import { WeatherUtil } from '@shared/utils/weather.util';
   styleUrls: ['./weather-card.component.scss']
 })
 export class WeatherCardComponent implements OnInit {
-  @Input() zipCode: number | undefined = 95742;
+  // Defaults: 95742, 10001, 33101
+
+  public zipCodeNew: number | undefined;
+
+  private _zipCode: number | undefined;
+
+  @Input() set zipCode(zipCode: number | undefined) {
+    if (zipCode) {
+      this._zipCode = zipCode;
+      this.weatherService.getWeatherByZipCode(zipCode).subscribe(weather => {
+        console.log({ weather });
+        this.weather = weather;
+      });
+    }
+  }
+
+  get zipCode(): number | undefined {
+    return this._zipCode;
+  }
 
   @Output() zipCodeRemoveInitiated = new EventEmitter<number>();
 
@@ -33,9 +51,6 @@ export class WeatherCardComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getWeatherByZipCode(95742).subscribe(weather => {
-      console.log({ weather });
-      this.weather = weather;
-    });
+
   }
 }

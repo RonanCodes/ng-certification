@@ -11,7 +11,7 @@ These libs were not updated:
 - "popper.js"
 
 # Todo's
-I've left TODO's in the project as extra enhancements that could be made.
+I've left TODO's & Notes in the project as extra enhancements that could be made and to point stuff out.
 
 # Routing
 I'm using hash routing strategy for quick auto reload.

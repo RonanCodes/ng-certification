@@ -12,4 +12,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  removeZipCode(zipCode: number): void {
+    console.log('#removeZipCode()', { zipCode });
+  }
+
 }

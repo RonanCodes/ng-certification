@@ -7,12 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./forecast.component.scss']
 })
 export class ForecastComponent implements OnInit {
-  public zipCode: string | undefined | null;
+  public zipCode: number | undefined;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     const routeParams = this.activatedRoute.snapshot.paramMap;
-    this.zipCode = routeParams.get('zipCode');
+    this.zipCode = Number(routeParams.get('zipCode'));
   }
 }

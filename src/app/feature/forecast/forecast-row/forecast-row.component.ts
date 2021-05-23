@@ -9,7 +9,7 @@ import { WeatherUtil } from '@shared/utils/weather.util';
   styleUrls: ['./forecast-row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ForecastRowComponent implements OnInit {
+export class ForecastRowComponent {
   public forecastDate: string | undefined;
   public weatherImgLocation: string | undefined;
 
@@ -34,10 +34,5 @@ export class ForecastRowComponent implements OnInit {
 
       this.weatherImgLocation = WeatherUtil.getWeatherImage(weatherForecastResponseItem.weather[0].main);
     }
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
   }
 }

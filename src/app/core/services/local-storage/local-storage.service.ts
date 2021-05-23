@@ -11,8 +11,6 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
   private zipCodesStorageKey = 'zipCodes';
 
-  constructor() { }
-
   addZipCode(zipCode: number): number[] {
     let zipCodes = this.getZipCodes();
     zipCodes.push(zipCode);

@@ -5,13 +5,15 @@ import { ForecastComponent } from '@feature/forecast/forecast.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'forecast/:zipCode', component: ForecastComponent }, // TODO: Add a route resolver to get the forecast info before loading the route.
+  // Note: We could add a route resolver to get the forecast info before loading the route:
+  { path: 'forecast/:zipCode', component: ForecastComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  // { path: '**', component: DashboardComponent },
+  { path: '**', component: DashboardComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })], // TODO: Remove hash once app is ready for server.
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  // Note: We can remove the hash routing once the app is ready for server and setup to allow refresh of parameterized routes.
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

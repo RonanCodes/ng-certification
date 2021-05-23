@@ -4,6 +4,7 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
 import { ZipCodeInputComponent } from './components/zip-code-input/zip-code-input.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'app/app-routing.module';
+import { RouterModule } from '@angular/router';
 
 /**
  * This module contains:
@@ -14,7 +15,7 @@ import { AppRoutingModule } from 'app/app-routing.module';
   declarations: [WeatherCardComponent, ZipCodeInputComponent],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    RouterModule,
     FormsModule,
   ],
   exports: [WeatherCardComponent, ZipCodeInputComponent, FormsModule]

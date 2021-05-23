@@ -9,8 +9,6 @@ enum WeatherImageName {
 
 export class WeatherUtil {
   public static getWeatherImage(weatherSummary: WeatherSummary): WeatherImageName | string {
-    console.log({ weatherSummary });
-
     switch (weatherSummary) {
       case WeatherSummary.Clouds:
         return this.getImageUrl(WeatherImageName.Clouds);

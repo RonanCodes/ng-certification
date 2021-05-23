@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import { ZipCodeInputComponent } from './components/zip-code-input/zip-code-input.component';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from 'app/app-routing.module';
 import { RouterModule } from '@angular/router';
 
 /**
@@ -16,8 +15,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    RouterModule
   ],
-  exports: [WeatherCardComponent, ZipCodeInputComponent, FormsModule, AppRoutingModule]
+  exports: [WeatherCardComponent, ZipCodeInputComponent, FormsModule, RouterModule]
 })
 export class SharedModule { }

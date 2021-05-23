@@ -21,7 +21,6 @@ export class ForecastComponent implements OnInit {
     this.zipCode = zipCode;
 
     this.weatherService.getForecastByZipCode(zipCode, 5).subscribe(forecast => {
-      console.log({ forecast });
       this.weatherForecast = forecast;
     }, error => console.error('Error retrieving forecast by zip code', { error }));
   }

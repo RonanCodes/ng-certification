@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '@core/services/local-storage/local-storage.service';
 
+/**
+ * Even though we get a new list on add or remove of a zipCode from the local storage service,
+ * The child WeatherCardComponents zipCode setter string value does not change, so no extra requests for existing data needed.
+ */
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,21 +21,12 @@ export class DashboardComponent implements OnInit {
   }
 
   removeZipCode(zipCodeToRemove: number): void {
-    console.log('#removeZipCode()', { zipCodeToRemove });
-
-    // Could put this duplicated logic in a util class:
-    const zipCodeToRemoveIndex = this.zipCodes.findIndex(zipCode => zipCode === zipCodeToRemove);
-    this.zipCodes.splice(zipCodeToRemoveIndex, 1);
-    // this.zipCodes = this.localStorageService.removeZipCode(zipCodeToRemove);
-
-    // Note: I'm updating the list here instead of getting completely fresh in order to less the amount of network and storage requests for efficiency,
-    // you could refresh everything if you wanted.
+    this.zipCodes = this.localStorageService.removeZipCode(zipCodeToRemove);
   }
 
   addZipCode(newZipCode: number): void {
     if (!this.zipCodes.includes(newZipCode)) {
-      this.zipCodes.push(newZipCode);
-      this.localStorageService.addZipCode(newZipCode);
+      this.zipCodes = this.localStorageService.addZipCode(newZipCode);
     }
   }
 }

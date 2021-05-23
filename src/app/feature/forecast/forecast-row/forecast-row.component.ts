@@ -24,8 +24,6 @@ export class ForecastRowComponent implements OnInit {
 
   private generateDisplayDate(weatherForecastResponseItem: WeatherForecastResponseItem | undefined): void {
     if (weatherForecastResponseItem) {
-      console.log({ weatherForecastResponseItem });
-
       this._forecastRow = weatherForecastResponseItem;
       const dateObj = new Date(weatherForecastResponseItem?.dt * 1000);
 

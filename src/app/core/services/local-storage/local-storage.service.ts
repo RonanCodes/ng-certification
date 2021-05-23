@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-// TODO: We could create a data source service for the weather and zipcode data potentially.
+// Note: We could create a data source service for the weather and zipcode data potentially.
 
 /**
  * Since this is a list, we always need to retrieve the list, before updating, and re-saving.
@@ -29,16 +29,9 @@ export class LocalStorageService {
   getZipCodes(): number[] {
     const localStorageValue = localStorage.getItem('zipCodes');
 
-    // if(localStorageValue){
-    //   return JSON.parse(localStorageValue) as number[];
-    // } else {
-    //   return [];
-    // }
     return localStorageValue
       ? JSON.parse(localStorageValue) as number[]
       : [];
-
-    // return JSON.parse(localStorage.getItem('zipCodes')) as number[];
   }
 
   removeZipCode(zipCodeToRemove: number): number[] {

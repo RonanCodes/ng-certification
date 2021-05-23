@@ -13,30 +13,16 @@ export class ForecastComponent implements OnInit {
   public weatherForecast: WeatherForecastResponse | undefined;
 
   constructor(private activatedRoute: ActivatedRoute, private weatherService: WeatherService) {
-    console.log('CONSTRUCT');
-
   }
 
   ngOnInit(): void {
-    console.log('INIT');
-
     const routeParams = this.activatedRoute.snapshot.paramMap;
     const zipCode = Number(routeParams.get('zipCode'));
     this.zipCode = zipCode;
 
-    // this.activatedRoute.params.subscribe(params => {
-    //   this.zipCode = +params['zipCode']; // (+) converts string 'id' to a number
-
-    //   // In a real app: dispatch action to load the details here.
-    //   this.weatherService.getForecastByZipCode(this.zipCode).subscribe(forecast => {
-    //     console.log({ forecast });
-    //     this.weatherForecast = forecast;
-    //   });
-    // });
-
     this.weatherService.getForecastByZipCode(zipCode, 5).subscribe(forecast => {
       console.log({ forecast });
       this.weatherForecast = forecast;
-    });
+    }, error => console.error('Error retrieving forecast by zip code', { error }));
   }
 }

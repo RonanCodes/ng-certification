@@ -2,30 +2,9 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">{{weatherForecast.cnt}}-day forecast for {{weatherForecast.city.name}}</h3>
-      <!-- Rancho Cordova -->
     </div>
     <ul class="list-group">
-      <!-- TODO: Try ng-template: -->
       <app-forecast-row *ngFor="let forecastRow of weatherForecast.list" [forecastRow]="forecastRow"></app-forecast-row>
-      <!-- <div ></div> -->
-      <!-- <li class="list-group-item"> Monday, Mar 23: Rain - Min: 45 - Max: 59 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/rain.png">
-      </li> -->
-      <!-- <li class="list-group-item"> Monday, Mar 23: Rain - Min: 45 - Max: 59 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/rain.png">
-      </li>
-      <li class="list-group-item"> Tuesday, Mar 24: Rain - Min: 39 - Max: 52 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/sun.png">
-      </li>
-      <li class="list-group-item"> Wednesday, Mar 25: Rain - Min: 36 - Max: 54 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/rain.png">
-      </li>
-      <li class="list-group-item"> Thursday, Mar 26: Clear - Min: 37 - Max: 56 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/clouds.png">
-      </li>
-      <li class="list-group-item"> Friday, Mar 27: Clear - Min: 40 - Max: 57 <img class="icon"
-          src="https://www.angulartraining.com/images/weather/snow.png">
-      </li> -->
     </ul>
   </div>
   <button class="btn btn-success" tabindex="0" id="mainPageBtn" [routerLink]="['/dashboard']">&lt; Back to main

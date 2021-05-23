@@ -22,8 +22,7 @@ export class DashboardComponent implements OnInit {
     // Could put this duplicated logic in a util class:
     const zipCodeToRemoveIndex = this.zipCodes.findIndex(zipCode => zipCode === zipCodeToRemove);
     this.zipCodes.splice(zipCodeToRemoveIndex, 1);
-    this.localStorageService.removeZipCode(zipCodeToRemove);
-
+    // this.zipCodes = this.localStorageService.removeZipCode(zipCodeToRemove);
 
     // Note: I'm updating the list here instead of getting completely fresh in order to less the amount of network and storage requests for efficiency,
     // you could refresh everything if you wanted.

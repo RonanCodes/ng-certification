@@ -3,25 +3,22 @@ import { WeatherResponse } from '@core/services/weather/weather.model';
 import { WeatherService } from '@core/services/weather/weather.service';
 import { WeatherUtil } from '@shared/utils/weather.util';
 
+// Note: Default zipcodes: 95742, 10001, 33101
+
 @Component({
   selector: 'app-weather-card',
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss']
 })
-export class WeatherCardComponent implements OnInit {
-  // Defaults: 95742, 10001, 33101
-
-  public zipCodeNew: number | undefined;
-
+export class WeatherCardComponent {
   private _zipCode: number | undefined;
 
   @Input() set zipCode(zipCode: number | undefined) {
     if (zipCode) {
       this._zipCode = zipCode;
       this.weatherService.getWeatherByZipCode(zipCode).subscribe(weather => {
-        console.log({ weather });
         this.weather = weather;
-      });
+      }, error => console.error('Error retrieving weather by zip code', { error }));
     }
   }
 
@@ -33,8 +30,6 @@ export class WeatherCardComponent implements OnInit {
 
   public _weather: WeatherResponse | undefined;
   public set weather(weatherResponse: WeatherResponse | undefined) {
-    console.log({ weatherResponse });
-
     if (weatherResponse) {
       this._weather = weatherResponse;
       this.weatherImgLocation = WeatherUtil.getWeatherImage(weatherResponse.weather[0].main);
@@ -50,7 +45,4 @@ export class WeatherCardComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
-  ngOnInit(): void {
-
-  }
 }

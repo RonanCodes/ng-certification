@@ -14,6 +14,7 @@ import { FeatureModule } from './feature/feature.module';
   imports: [BrowserModule, CoreModule, FeatureModule, AppRoutingModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
-  // Note: We could add a startup service to fetch local-storage data before the app loads so it's ready (would want a data source/store for the retrieved data).
+  // Note: We could add a startup service to fetch local-storage data before the app loads so it's ready
+  // (would want a data source/store for the retrieved data).
 })
 export class AppModule { }
